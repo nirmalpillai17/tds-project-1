@@ -11,7 +11,12 @@ if len(sys.argv) < 2:
 base_path = pathlib.Path().absolute()
 
 input_file_path = base_path / sys.argv[1]
-output_file_path = base_path / "user_details.csv"
+output_file_path = base_path / "users.csv"
 
+file = open(output_file_path, "w")
+data = json.load(file)
+file.close()
 
+for item in data:
+    pass
 

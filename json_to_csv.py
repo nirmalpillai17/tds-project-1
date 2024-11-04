@@ -22,7 +22,7 @@ in_file.close()
 
 csv_writer = csv.writer(out_file)
 
-clean = lambda s: s.replace('\n', ' ').replace('\r', ' ') if s else ''
+clean = lambda s: str(s).replace('\n', ' ').replace('\r', ' ') if s else ''
 
 csv_writer.writerow([
         "login", "name", "company",
@@ -37,7 +37,7 @@ for item in data:
         clean(item["company"]).lstrip('@').upper(),
         clean(item["location"]),
         clean(item["email"]),
-        clean(str(item["hireable"])),
+        clean(item["hireable"]),
         clean(item["bio"]),
         item["public_repos"],
         item["followers"],
